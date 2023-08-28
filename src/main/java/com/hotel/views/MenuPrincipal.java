@@ -11,7 +11,7 @@ import java.util.Objects;
 public class MenuPrincipal extends JFrame{
 
     private JPanel contentPane;
-    private JLabel labelExit,panelIm,imagenFondo1;
+    private JLabel labelExit,panelIm,imagenFondo1,imagenLogin,btnLogin;
     int xMouse, yMouse;
 
     public MenuPrincipal()  {
@@ -19,7 +19,6 @@ public class MenuPrincipal extends JFrame{
         contentPane = new JPanel();
         this.setIconImage(getIconImage());
         this.setBounds(100, 100, 910, 537);
-        //contentPane.setBorder(new EmptyBorder(5, 5, 5, 5))
         contentPane.setBackground(new Color(182,228,240));
         contentPane.setLayout(null);
         this.setResizable(false);
@@ -27,7 +26,6 @@ public class MenuPrincipal extends JFrame{
         this.setUndecorated(true);
         this.getContentPane().add(contentPane);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-
 
         panelIm = new JLabel();
         panelIm.setBounds(0, 0, 600, 500);
@@ -37,19 +35,24 @@ public class MenuPrincipal extends JFrame{
         contentPane.add(panelIm);
 
         imagenFondo1 = new JLabel("");
-        imagenFondo1.setBounds(300, 50, 260, 250);
-        imagenFondo1.setBackground(Color.black);
+        imagenFondo1.setBounds(430, 0, 180, 250);
+        imagenFondo1.setHorizontalAlignment(SwingConstants.CENTER);
         imagenFondo1.setIcon(inicio("/imagenes/hotel.gif"));
         panelIm.add(imagenFondo1);
 
         JLabel imagendeFondo2= new JLabel("");
-        imagendeFondo2.setBounds(50, 200, 250, 300);
-        imagendeFondo2.setBackground(Color.pink);
+        imagendeFondo2.setBounds(0, 310, 180, 190);
+        imagendeFondo2.setHorizontalAlignment(SwingConstants.CENTER);
         imagendeFondo2.setIcon(inicio("/imagenes/hotelRecep.gif"));
         panelIm.add(imagendeFondo2);
 
+        JLabel imagendeFondo3= new JLabel();
+        imagendeFondo3.setBounds(250, 180, 136, 180);
+        imagendeFondo3.setHorizontalAlignment(SwingConstants.CENTER);
+        imagendeFondo3.setIcon(inicio("/imagenes/InicioOpcional2.gif"));
+        panelIm.add(imagendeFondo3);
 
-        JLabel logo = new JLabel("");
+        JLabel logo = new JLabel();
         logo.setBounds(692, 80, 150, 156);
         logo.setIcon(new ImageIcon(Objects.requireNonNull(MenuPrincipal.class.getResource("/imagenes/aH150px.png"))));
         contentPane.add(logo);
@@ -60,21 +63,19 @@ public class MenuPrincipal extends JFrame{
         panel_1.setBackground(new Color(160, 222, 239));
         contentPane.add(panel_1);
 
-
         JLabel lblCopyR = new JLabel("Developer by Edgar M Gómez P © 2023");
         lblCopyR.setBounds(315, 11, 314, 19);
         lblCopyR.setForeground(new Color(255, 255, 255));
         lblCopyR.setFont(new Font("Roboto", Font.PLAIN, 12));
         panel_1.add(lblCopyR);
 
-        //Barra para controlar la ventana
+        //Boton para controlar la ventana
         JPanel header = new JPanel();
-        header.setBounds(860, 0, 50, 36);
-        header.addMouseMotionListener(new MouseMotionAdapter() { //vamos por acá
+        header.setBounds(0, 500, 50, 36);
+        header.addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 headerMouseDragged(e);
-
             }
         });
         header.addMouseListener(new MouseAdapter() {
@@ -86,7 +87,6 @@ public class MenuPrincipal extends JFrame{
         header.setLayout(null);
         header.setBackground(Color.WHITE);
         contentPane.add(header);
-
         //Botón salir
         JPanel btnexit = new JPanel();
         btnexit.addMouseListener(new MouseAdapter() {
@@ -102,53 +102,59 @@ public class MenuPrincipal extends JFrame{
             @Override
             public void mouseExited(MouseEvent e) {
                 btnexit.setBackground(Color.white);
-                labelExit.setForeground(Color.black);
-            }
-        });
+                labelExit.setForeground(new Color(160, 222, 239));
+            }});
         btnexit.setLayout(null);
         btnexit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnexit.setBackground(Color.WHITE);
+        btnexit.setBackground(Color.white);
         btnexit.setBounds(857, 0, 53, 36);
-        header.add(btnexit);
+        contentPane.add(btnexit);
 
         labelExit = new JLabel("<X>");
         labelExit.setBounds(0, 0, 53, 36);
-        btnexit.add(labelExit);
         labelExit.setHorizontalAlignment(SwingConstants.CENTER);
         labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
-
+        labelExit.setForeground(new Color(160, 222, 239));
+        btnexit.add(labelExit);
         //Botón Login
-        JPanel btnLogin = new JPanel();
-        btnLogin.setBounds(754, 300, 83, 70);
+        btnLogin = new JLabel();
+        btnLogin.setBounds(704, 300, 120, 120);
+        btnLogin.setOpaque(true);
+        btnLogin.setBackground(new Color(182,228,240));
         btnLogin.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 //Login login = new Login();
                 //login.setVisible(true);
-                dispose();
+                //dispose();
             }
-        });
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                imagenLogin.setIcon(imaLoguin("/imagenes/loguinH2.png"));
+            }
+            @Override
+            public void mouseExited(MouseEvent e) {
+                imagenLogin.setIcon(imaLoguin("/imagenes/loguinM.png"));
+            }});
         btnLogin.setLayout(null);
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogin.setBackground(SystemColor.window);
-       // panel.add(btnLogin);
-
-        JLabel imagenLogin = new JLabel("");
-        imagenLogin.setBounds(0, 0, 80, 70);
-        btnLogin.add(imagenLogin);
-        imagenLogin.setHorizontalAlignment(SwingConstants.CENTER);
-        imagenLogin.setIcon(new ImageIcon(Objects.requireNonNull(MenuPrincipal.class.getResource("/imagenes/login.png"))));
+        //btnLogin.setBackground(SystemColor.window);
+        contentPane.add(btnLogin);
 
         JLabel lblTitulo = new JLabel("LOGIN");
-        lblTitulo.setBounds(754, 265, 83, 24);
-        lblTitulo.setBackground(SystemColor.window);
-       //panel.add(lblTitulo);
+        lblTitulo.setBounds(724, 265, 83, 24);
         lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
         lblTitulo.setForeground(SystemColor.textHighlight);
         lblTitulo.setFont(new Font("Roboto Light", Font.PLAIN, 20));
-    }
+        contentPane.add(lblTitulo);
 
-    //Código que permite movimentar a janela pela tela seguindo a posição de "x" e "y"
+        imagenLogin = new JLabel();
+        imagenLogin.setBounds(0, 0, 120, 120);
+        imagenLogin.setHorizontalAlignment(SwingConstants.CENTER);
+        imagenLogin.setIcon(imaLoguin("/imagenes/loguinM.png"));
+        btnLogin.add(imagenLogin);
+    }
+    //Código que permite mover la pantalla.
     private void headerMousePressed(java.awt.event.MouseEvent evt) {
         xMouse = evt.getX();
         yMouse = evt.getY();
@@ -164,5 +170,10 @@ public class MenuPrincipal extends JFrame{
     private ImageIcon inicio(String imagen){
         return new ImageIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(imagen))).getImage()
                 .getScaledInstance(250,250,Image.SCALE_REPLICATE));
+    }
+    private ImageIcon imaLoguin( String login){
+        ImageIcon ima1= new ImageIcon(Objects.requireNonNull(getClass().getResource(login)));
+        ImageIcon ima2= new ImageIcon(ima1.getImage().getScaledInstance(imagenLogin.getWidth(),imagenLogin.getHeight(),Image.SCALE_SMOOTH));
+        return ima2;
     }
 }
