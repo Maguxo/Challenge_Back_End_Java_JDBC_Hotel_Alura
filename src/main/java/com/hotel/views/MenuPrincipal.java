@@ -12,7 +12,7 @@ public class MenuPrincipal extends JFrame{
 
     private JPanel contentPane;
     private JLabel labelExit,panelIm,imagenFondo1,imagenLogin,btnLogin;
-    int xMouse, yMouse;
+    private int xMouse, yMouse;
 
     public MenuPrincipal()  {
 
