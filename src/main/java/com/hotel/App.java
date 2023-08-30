@@ -1,6 +1,6 @@
 package com.hotel;
 
-import com.hotel.views.MenuPrincipal;
+import com.hotel.views.*;
 
 import java.awt.*;
 
@@ -16,8 +16,16 @@ public class App
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    MenuPrincipal frame = new MenuPrincipal();
-                    frame.setVisible(true);
+                    //MenuPrincipal frame = new MenuPrincipal();
+                    //frame.setVisible(true);
+                    //Loguin login= new Loguin();
+                    //login.setVisible(true);
+                    //MenuUsuarios menu= new MenuUsuarios();
+                    //menu.setVisible(true);
+                    //ReservasView reservasView= new ReservasView();
+                   // reservasView.setVisible(true);
+                    RegistroHuespedes huesped= new RegistroHuespedes();
+                    huesped.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
