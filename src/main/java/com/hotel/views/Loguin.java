@@ -9,6 +9,7 @@ import java.util.Objects;
 
 public class Loguin extends JFrame {
 
+    private ControllerView controllerView;
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTextField txtUsuario;
@@ -157,8 +158,7 @@ public class Loguin extends JFrame {
                 btnLogin.setBackground(SystemColor.textHighlight);
             }
             @Override
-            public void mouseClicked(MouseEvent e) {
-                Login();
+            public void mouseClicked(MouseEvent e) {Login();
             }});
         btnLogin.setBackground(SystemColor.textHighlight);
         btnLogin.setBounds(65, 431, 122, 44);
@@ -197,18 +197,21 @@ public class Loguin extends JFrame {
         header.setLayout(null);
     }
     private void Login() {
-        String Usuario= "admin";
+        /*String Usuario= "admin";
         String Contraseña="admin";
 
         String contrase=new String (txtContrasena.getPassword());
 
         if(txtUsuario.getText().equals(Usuario) && contrase.equals(Contraseña)){
-            //MenuUsuario menu = new MenuUsuario();
-            //menu.setVisible(true);
+
             //dispose();
         }else {
             JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos");
-        }}
+        }*/
+        controllerView.mostrarMenuUsuario();
+        controllerView.noMostrarLoguin();
+        dispose();
+    }
     private void headerMousePressed(java.awt.event.MouseEvent evt) {
         xMouse = evt.getX();
         yMouse = evt.getY();
@@ -221,10 +224,12 @@ public class Loguin extends JFrame {
     public Image getIconImage(){
         return Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/aH40px.png")).getScaledInstance(100,100,20);
     }
-
     private ImageIcon imaGif( String login){
         ImageIcon ima1= new ImageIcon(Objects.requireNonNull(getClass().getResource(login)));
         ImageIcon ima2= new ImageIcon(ima1.getImage().getScaledInstance(imgHotel.getWidth(),imgHotel.getHeight(),Image.SCALE_FAST));
         return ima2;
+    }
+    public void setControllerView (ControllerView controllerView){
+        this.controllerView= controllerView;
     }
 }

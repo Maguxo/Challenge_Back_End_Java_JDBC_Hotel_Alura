@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 public class MenuUsuarios extends JFrame {
+    private ControllerView controllerView;
     private JPanel contentPane;
     int xMouse, yMouse;
     private JLabel labelExit, recepcion;
@@ -62,11 +63,10 @@ public class MenuUsuarios extends JFrame {
             }
             @Override
             public void mouseClicked(MouseEvent e) {
-                //ReservasView reservas = new ReservasView();
-                //reservas.setVisible(true);
-                //dispose();
-            }
-        });
+                controllerView.mostrarReservasView();
+                controllerView.noMostrarMenuUsuario();
+                dispose();
+            }});
         btnRegistro.setBounds(0, 255, 257, 56);
         btnRegistro.setBackground(new Color(12, 138, 199));
         panelMenu.add(btnRegistro);
@@ -92,11 +92,10 @@ public class MenuUsuarios extends JFrame {
             }
             @Override
             public void mouseClicked(MouseEvent e) {
-                //Busqueda busqueda = new Busqueda();
-                //busqueda.setVisible(true);
-                //dispose();
-            }
-        });
+               controllerView.mostrarBusqueda();
+               controllerView.noMostrarMenuUsuario();
+                dispose();
+            }});
         btnBusqueda.setBounds(0, 312, 257, 56);
         btnBusqueda.setBackground(new Color(12, 138, 199));
         panelMenu.add(btnBusqueda);
@@ -133,9 +132,7 @@ public class MenuUsuarios extends JFrame {
             public void mouseExited(MouseEvent e) {
                 btnexit.setBackground(new Color(160, 222, 239));
                 labelExit.setForeground(Color.white);
-            }
-        });
-
+            }});
         btnexit.setLayout(null);
         btnexit.setBackground(new Color(160, 222, 239));
         btnexit.setBounds(891, 0, 53, 36);
@@ -209,7 +206,6 @@ public class MenuUsuarios extends JFrame {
         recepcion.setOpaque(true);
         contentPane.add(recepcion);
     }
-
     private void headerMousePressed(java.awt.event.MouseEvent evt) {
         xMouse = evt.getX();
         yMouse = evt.getY();
@@ -228,5 +224,8 @@ public class MenuUsuarios extends JFrame {
         ImageIcon ima1= new ImageIcon(Objects.requireNonNull(getClass().getResource(login)));
         ImageIcon ima2= new ImageIcon(ima1.getImage().getScaledInstance(recepcion.getWidth(),recepcion.getHeight(),Image.SCALE_FAST));
         return ima2;
+    }
+    public void setControllerView (ControllerView controllerView){
+        this.controllerView= controllerView;
     }
 }

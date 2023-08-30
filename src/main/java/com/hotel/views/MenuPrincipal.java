@@ -10,6 +10,7 @@ import java.util.Objects;
 
 public class MenuPrincipal extends JFrame{
 
+    private ControllerView controllerView;
     private JPanel contentPane;
     private JLabel labelExit,panelIm,imagenFondo1,imagenLogin,btnLogin;
     private int xMouse, yMouse;
@@ -124,9 +125,9 @@ public class MenuPrincipal extends JFrame{
         btnLogin.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //Login login = new Login();
-                //login.setVisible(true);
-                //dispose();
+                controllerView.mostrarLoguin();
+                controllerView.noMostrarMenuPrincipal();
+                dispose();
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -175,5 +176,8 @@ public class MenuPrincipal extends JFrame{
         ImageIcon ima1= new ImageIcon(Objects.requireNonNull(getClass().getResource(login)));
         ImageIcon ima2= new ImageIcon(ima1.getImage().getScaledInstance(imagenLogin.getWidth(),imagenLogin.getHeight(),Image.SCALE_SMOOTH));
         return ima2;
+    }
+    public void setControllerView (ControllerView controllerView){
+        this.controllerView= controllerView;
     }
 }

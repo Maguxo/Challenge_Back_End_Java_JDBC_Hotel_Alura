@@ -20,6 +20,7 @@ import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 public class ReservasView extends JFrame {
+    private ControllerView controllerView;
     private JPanel contentPane;
     public static JTextField txtValor;
     public static JDateChooser txtFechaEntrada;
@@ -172,9 +173,9 @@ public class ReservasView extends JFrame {
         btnAtras.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //MenuUsuario usuario = new MenuUsuario();
-                //usuario.setVisible(true);
-                //dispose();
+                controllerView.mostrarMenuUsuario();
+                controllerView.noMostrarReservasView();
+                dispose();
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -256,12 +257,16 @@ public class ReservasView extends JFrame {
         btnsiguiente.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if (ReservasView.txtFechaEntrada.getDate() != null && ReservasView.txtFechaSalida.getDate() != null) {
+                /*if (ReservasView.txtFechaEntrada.getDate() != null && ReservasView.txtFechaSalida.getDate() != null) {
                    // RegistroHuesped registro = new RegistroHuesped();
                     //registro.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
-                }}});
+                }*/
+                controllerView.mostrarRegistroHuesped();
+                controllerView.noMostrarReservasView();
+                dispose();
+            }});
         btnsiguiente.setLayout(null);
         btnsiguiente.setBackground(SystemColor.textHighlight);
         btnsiguiente.setBounds(238, 493, 122, 35);
@@ -286,5 +291,8 @@ public class ReservasView extends JFrame {
         ImageIcon ima1= new ImageIcon(Objects.requireNonNull(getClass().getResource(login)));
         ImageIcon ima2= new ImageIcon(ima1.getImage().getScaledInstance(imagenFondo.getWidth(),imagenFondo.getHeight(), Image.SCALE_FAST));
         return ima2;
+    }
+    public void setControllerView (ControllerView controllerView){
+        this.controllerView= controllerView;
     }
 }

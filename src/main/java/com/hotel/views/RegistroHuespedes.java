@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class RegistroHuespedes extends JFrame {
 
+    private ControllerView controllerView;
     private JPanel contentPane;
     private JTextField txtNombre,txtApellido,txtTelefono,txtNreserva;
     private JDateChooser txtFechaN;
@@ -31,31 +32,13 @@ public class RegistroHuespedes extends JFrame {
         this.getContentPane().add(contentPane);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-        JPanel header = new JPanel();
-        header.setBounds(0, 0, 910, 36);
-        header.addMouseMotionListener(new MouseMotionAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                headerMouseDragged(e);
-            }});
-        header.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                headerMousePressed(e);
-            }});
-        header.setLayout(null);
-        header.setBackground(SystemColor.text);
-        header.setOpaque(false);
-        header.setBounds(0, 0, 910, 36);
-        contentPane.add(header);
-
         JPanel btnAtras = new JPanel();
         btnAtras.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //ReservasView reservas = new ReservasView();
-                //reservas.setVisible(true);
-                //dispose();
+                controllerView.mostrarReservasView();
+                controllerView.noMostrarRegistroHuesped();
+                dispose();
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -67,10 +50,21 @@ public class RegistroHuespedes extends JFrame {
                 btnAtras.setBackground(new Color(12, 138, 199));
                 labelAtras.setForeground(Color.white);
             }});
+        JPanel panel = new JPanel();
+        panel.setBounds(0, 0, 489, 634);
+        panel.setBackground(new Color(12, 138, 199));
+        contentPane.add(panel);
+        panel.setLayout(null);
+
+        imagenFondo = new JLabel("");
+        imagenFondo.setBounds(0, 0, 499, 634);
+        imagenFondo.setIcon(gifHuesped("/imagenes/huespedGif.gif"));
+        panel.add(imagenFondo);
+
         btnAtras.setLayout(null);
         btnAtras.setBackground(new Color(12, 138, 199));
         btnAtras.setBounds(0, 0, 53, 36);
-        header.add(btnAtras);
+        imagenFondo.add(btnAtras);
 
         labelAtras = new JLabel("<");
         labelAtras.setHorizontalAlignment(SwingConstants.CENTER);
@@ -208,7 +202,9 @@ public class RegistroHuespedes extends JFrame {
         btnguardar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-              //darle acción.
+              controllerView.mostrarExito();
+              controllerView.noMostrarRegistroHuesped();
+              dispose();
             }});
         btnguardar.setLayout(null);
         btnguardar.setBackground(new Color(12, 138, 199));
@@ -222,17 +218,6 @@ public class RegistroHuespedes extends JFrame {
         labelGuardar.setBounds(0, 0, 122, 35);
         btnguardar.add(labelGuardar);
 
-        JPanel panel = new JPanel();
-        panel.setBounds(0, 0, 489, 634);
-        panel.setBackground(new Color(12, 138, 199));
-        contentPane.add(panel);
-        panel.setLayout(null);
-
-        imagenFondo = new JLabel("");
-        imagenFondo.setBounds(0, 0, 499, 634);
-        panel.add(imagenFondo);
-        imagenFondo.setIcon(gifHuesped("/imagenes/huespedGif.gif"));
-
         JLabel logo = new JLabel("");
         logo.setBounds(194, 39, 104, 107);
         imagenFondo.add(logo);
@@ -241,13 +226,11 @@ public class RegistroHuespedes extends JFrame {
         JPanel btnexit = new JPanel();
         btnexit.setBounds(857, 0, 53, 36);
         btnexit.setBackground(new Color(12, 138, 199));
-        header.add(btnexit);
+        contentPane.add(btnexit);
         btnexit.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //MenuPrincipal principal = new MenuPrincipal();
-                //principal.setVisible(true);
-                //dispose();
+                System.exit(0);
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -269,16 +252,6 @@ public class RegistroHuespedes extends JFrame {
         labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
         btnexit.add(labelExit);
     }
-    //Código que permite mover la ventana por la pantalla según la posición de "x" y "y"
-    private void headerMousePressed(java.awt.event.MouseEvent evt) {
-        xMouse = evt.getX();
-        yMouse = evt.getY();
-    }
-    private void headerMouseDragged(java.awt.event.MouseEvent evt) {
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        this.setLocation(x - xMouse, y - yMouse);
-    }
     public Image getIconImage(){
         return Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/aH40px.png")).getScaledInstance(100,100,20);
     }
@@ -286,5 +259,8 @@ public class RegistroHuespedes extends JFrame {
         ImageIcon ima1= new ImageIcon(Objects.requireNonNull(getClass().getResource(login)));
         ImageIcon ima2= new ImageIcon(ima1.getImage().getScaledInstance(imagenFondo.getWidth(),imagenFondo.getHeight(), Image.SCALE_FAST));
         return ima2;
+    }
+    public void setControllerView (ControllerView controllerView){
+        this.controllerView= controllerView;
     }
 }
