@@ -1,5 +1,8 @@
 package com.hotel.views;
 
+import com.hotel.controller.ControllerLogin;
+import com.hotel.model.AdministradorLoguin;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -16,9 +19,11 @@ public class Loguin extends JFrame {
     private JPasswordField txtContrasena;
     int xMouse, yMouse;
     private JLabel labelExit, imgHotel;
+    private ControllerLogin controllerLogin;
 
 
     public Loguin() {
+        this.controllerLogin= new ControllerLogin();
 
         contentPane = new JPanel();
         this.setIconImage(getIconImage());
@@ -189,25 +194,35 @@ public class Loguin extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 headerMousePressed(e);
-            }
-        });
+            }});
         header.setBackground(SystemColor.window);
         header.setBounds(0, 0, 784, 36);
         panel.add(header);
         header.setLayout(null);
     }
     private void Login() {
-        /*String Usuario= "admin";
-        String Contraseña="admin";
-
+        String usuario = txtUsuario.getText();
+        // var userLoguin= controllerLogin.listar();
         String contrase=new String (txtContrasena.getPassword());
 
-        if(txtUsuario.getText().equals(Usuario) && contrase.equals(Contraseña)){
 
-            //dispose();
-        }else {
-            JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos");
-        }*/
+        if (txtUsuario.getText().isBlank() || contrase.isBlank()) {
+            JOptionPane.showMessageDialog(
+                    this, "Por favor, no dejar campos en blanco.","AVISO",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+          controllerLogin.listar(usuario, contrase);
+         if(controllerLogin.getValida().equals(true)){
+             ingresarVentana();
+         }else {
+             JOptionPane.showMessageDialog(
+                     this, "¡Acceso denegado!","Imposible ingresar", JOptionPane.ERROR_MESSAGE);
+         }
+
+        }
+
+
+    public void ingresarVentana(){
         controllerView.mostrarMenuUsuario();
         controllerView.noMostrarLoguin();
         dispose();
@@ -224,7 +239,7 @@ public class Loguin extends JFrame {
     public Image getIconImage(){
         return Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/aH40px.png")).getScaledInstance(100,100,20);
     }
-    private ImageIcon imaGif( String login){
+    private ImageIcon imaGif(String login){
         ImageIcon ima1= new ImageIcon(Objects.requireNonNull(getClass().getResource(login)));
         ImageIcon ima2= new ImageIcon(ima1.getImage().getScaledInstance(imgHotel.getWidth(),imgHotel.getHeight(),Image.SCALE_FAST));
         return ima2;
