@@ -15,7 +15,7 @@
 <div>
  <h1>Tools</h1>
 <p>*IntelliJ IDEA</p>
-<p>*MySQL</p>
+<p>*MySQL Workbench</p>
 </div>
 
 ---
