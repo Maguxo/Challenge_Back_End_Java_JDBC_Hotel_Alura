@@ -15,13 +15,14 @@
 <div>
  <h1>Tools</h1>
 <p>*IntelliJ IDEA</p>
-<p>*MySQL</p>
+<p>*MySQL Workbench</p>
 </div>
 
 ---
 <div>
  <h1>Library</h1>
 <p>*Maven</p>
+<p>*MySQL driver</p>
  </div>
 
  ---
