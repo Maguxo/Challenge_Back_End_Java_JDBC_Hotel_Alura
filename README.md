@@ -40,5 +40,12 @@
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/8f1c8676-15f3-41cd-afc2-d3e2afb03678">
 
   ---
+
+<div>
+ <h1>Menu</h1>
+<p>A welcome panel and its respective instructions are displayed.</p>
+ <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/10b9f55c-5125-454e-a2c9-0d2602cb355f">
+
+  ---
 </html>
 
