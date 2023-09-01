@@ -125,9 +125,6 @@ public class ReservasView extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.exit(0);
-                //MenuPrincipal principal = new MenuPrincipal();
-                //principal.setVisible(true);
-                //dispose();
             }
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -186,8 +183,7 @@ public class ReservasView extends JFrame {
             public void mouseExited(MouseEvent e) {
                 btnAtras.setBackground(Color.white);
                 labelAtras.setForeground(Color.black);
-            }
-        });
+            }});
         btnAtras.setLayout(null);
         btnAtras.setBackground(Color.WHITE);
         btnAtras.setBounds(0, 0, 53, 36);
@@ -224,26 +220,24 @@ public class ReservasView extends JFrame {
         txtFechaSalida.getCalendarButton().setBounds(267, 1, 21, 31);
         txtFechaSalida.setBackground(Color.WHITE);
         txtFechaSalida.setFont(new Font("Roboto", Font.PLAIN, 18));
-        txtFechaSalida.addPropertyChangeListener(new PropertyChangeListener() {
-            public void propertyChange(PropertyChangeEvent evt) {
-                //Activa el evento, después del usuario seleccionar las fechas se debe calcular el valor de la reserva
-            }
+        txtFechaSalida.addPropertyChangeListener(evt -> {
+            //Activa el evento, después del usuario seleccionar las fechas se debe calcular el valor de la reserva
         });
         txtFechaSalida.setDateFormatString("yyyy-MM-dd");
         txtFechaSalida.getCalendarButton().setBackground(SystemColor.textHighlight);
         txtFechaSalida.setBorder(new LineBorder(new Color(255, 255, 255), 0));
         panel.add(txtFechaSalida);
 
-        txtValor = new JTextField();
+        txtValor = new JTextField(" $0.000");
         txtValor.setBackground(SystemColor.text);
         txtValor.setHorizontalAlignment(SwingConstants.CENTER);
         txtValor.setForeground(Color.BLACK);
-        txtValor.setBounds(78, 328, 43, 33);
+        txtValor.setBounds(78, 328, 106, 33);
         txtValor.setEditable(false);
         txtValor.setFont(new Font("Roboto Black", Font.BOLD, 17));
         txtValor.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         panel.add(txtValor);
-        txtValor.setColumns(10);
+        txtValor.setColumns(100);
 
         txtFormaPago = new JComboBox();
         txtFormaPago.setBounds(68, 417, 289, 38);
