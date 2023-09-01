@@ -41,10 +41,10 @@
 
   ---
 
-   <div>
- <h1>Sign in</h1>
-<p>User must be initialized to initialize a record at the hotel</p>
- <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/45be2105-a840-44d1-8b11-9a1527e6c2d8">
+<div>
+ <h1>Menu</h1>
+<p>A welcome panel and its respective instructions are displayed.</p>
+ <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/10b9f55c-5125-454e-a2c9-0d2602cb355f">
 
   ---
 </html>
