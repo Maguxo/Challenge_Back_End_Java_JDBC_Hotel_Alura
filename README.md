@@ -50,7 +50,7 @@
 
   <div>
  <h1>Reservation</h1>
-<p>A welcome panel and its respective instructions are displayed.</p>
+<p>The reservation, day and value is made.</p>
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/403065d4-d15d-475a-91ad-cb9d3a401ffb">
 
   ---
