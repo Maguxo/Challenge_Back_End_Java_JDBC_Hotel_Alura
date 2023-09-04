@@ -49,7 +49,7 @@
   ---
 
   <div>
- <h1>Reservation</h1>
+ <h1>Registratión Reservation</h1>
 <p>The reservation, day and value is made.</p>
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/403065d4-d15d-475a-91ad-cb9d3a401ffb">
 
@@ -57,7 +57,7 @@
 
   <div>
  <h1>Guest Registration</h1>
-<p>The reservation, day and value is made.</p>
+<p>In this window the personal data of the guest is taken that are directed to the database.</p>
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/c660b202-4b52-4f98-b524-820c0ee4f0f8">
 
   ---
