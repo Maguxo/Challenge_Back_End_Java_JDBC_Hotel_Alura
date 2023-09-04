@@ -1,18 +1,22 @@
 package com.hotel.views;
-
+import com.hotel.controller.ControllerHuespedes;
+import com.hotel.model.Huespedes;
+import com.hotel.model.Reservas;
 import com.toedter.calendar.JDateChooser;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.sql.Date;
 import java.text.Format;
 import java.util.Objects;
 
-public class RegistroHuespedes extends JFrame {
+import static java.lang.Integer.*;
 
+public class RegistroHuespedes extends JFrame {
     private ControllerView controllerView;
+    private Reservas reservas;
+    private ControllerHuespedes controllerHuespedes;
     private JPanel contentPane;
     private JTextField txtNombre,txtApellido,txtTelefono,txtNreserva;
     private JDateChooser txtFechaN;
@@ -21,6 +25,8 @@ public class RegistroHuespedes extends JFrame {
     int xMouse, yMouse;
     public RegistroHuespedes() {
 
+        this.controllerView= new ControllerView();
+        this.controllerHuespedes= new ControllerHuespedes();
         contentPane = new JPanel();
         this.setIconImage(getIconImage());
         this.setBounds(100, 100, 910, 560);
@@ -31,7 +37,6 @@ public class RegistroHuespedes extends JFrame {
         this.setUndecorated(true);
         this.getContentPane().add(contentPane);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-
         JPanel btnAtras = new JPanel();
         btnAtras.addMouseListener(new MouseAdapter() {
             @Override
@@ -202,10 +207,19 @@ public class RegistroHuespedes extends JFrame {
         btnguardar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-              controllerView.mostrarExito();
-              controllerView.noMostrarRegistroHuesped();
-              dispose();
-            }});
+                String fechaNcimiento=((JTextField) txtFechaN.getDateEditor().getUiComponent()).getText();
+                if (txtNombre.getText() != null && txtApellido.getText()!= null && txtFechaN.getDate() !=null &&
+                        txtNacionalidad.getSelectedItem() !=null && txtTelefono.getText() !=null && txtNreserva.getText() !=null) {
+                    insertarRegistroHuespedes(fechaNcimiento);
+                    controllerView.cleanTHuespedes();
+                    controllerView.cargaerTablaHospedaje();
+                    controllerView.mostrarExito();
+                    controllerView.noMostrarRegistroHuesped();
+                    System.out.println("Registrado.");
+                    dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.","¡¡¡Atención!!!",JOptionPane.WARNING_MESSAGE);
+                }}});
         btnguardar.setLayout(null);
         btnguardar.setBackground(new Color(12, 138, 199));
         contentPane.add(btnguardar);
@@ -251,6 +265,34 @@ public class RegistroHuespedes extends JFrame {
         labelExit.setHorizontalAlignment(SwingConstants.CENTER);
         labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
         btnexit.add(labelExit);
+    }
+    private void insertarRegistroHuespedes(String fechaNacimiento){
+       this.reservas= new Reservas();
+        Integer idReserva;
+        try {
+            idReserva= parseInt(txtNreserva.getText());
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, String
+                    .format("El campo Número Reserva debe ser numérico dentro del rango %d y %d.", 0, MAX_VALUE));
+            return;
+        }
+
+        var huesped= new Huespedes(txtNombre.getText(),txtApellido.getText(), Date.valueOf(fechaNacimiento),
+                (String) txtNacionalidad.getSelectedItem(),txtTelefono.getText(),idReserva);
+        var reserva = valueOf(txtNreserva.getText());
+         reservas.setId(reserva);
+        this.controllerHuespedes.insertarHuesped(huesped, reservas.getId());
+
+        JOptionPane.showMessageDialog(this, "Registrado con éxito!");
+      limpiarFormulario();
+    }
+    private void limpiarFormulario() {
+        this.txtNombre.setText("");
+        this.txtApellido.setText("");
+        this.txtFechaN.setDateFormatString(String.valueOf(0));
+        this.txtTelefono.setText("");
+        this.txtNreserva.setText("");
+        this.txtNacionalidad.setSelectedIndex(0);
     }
     public Image getIconImage(){
         return Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/aH40px.png")).getScaledInstance(100,100,20);

@@ -205,7 +205,6 @@ public class Loguin extends JFrame {
         // var userLoguin= controllerLogin.listar();
         String contrase=new String (txtContrasena.getPassword());
 
-
         if (txtUsuario.getText().isBlank() || contrase.isBlank()) {
             JOptionPane.showMessageDialog(
                     this, "Por favor, no dejar campos en blanco.","AVISO",JOptionPane.WARNING_MESSAGE);
@@ -217,11 +216,7 @@ public class Loguin extends JFrame {
          }else {
              JOptionPane.showMessageDialog(
                      this, "¡Acceso denegado!","Imposible ingresar", JOptionPane.ERROR_MESSAGE);
-         }
-
-        }
-
-
+         }}
     public void ingresarVentana(){
         controllerView.mostrarMenuUsuario();
         controllerView.noMostrarLoguin();

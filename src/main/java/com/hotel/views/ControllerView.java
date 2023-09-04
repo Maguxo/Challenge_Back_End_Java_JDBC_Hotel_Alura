@@ -72,4 +72,16 @@ public class ControllerView {
     public void noMostrarExito(){
         exito.setVisible(false);
     }
+    public void cargarTablaReserva(){
+        busqueda.tabla();
+    }
+    public void cargaerTablaHospedaje(){
+         busqueda.tablaHospedaje();
+    }
+    public void cleanTReserva(){
+        busqueda.limpiaTReserva();
+    }
+    public void cleanTHuespedes() {
+        busqueda.limpiaTHuespedes();
+    }
 }
