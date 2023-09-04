@@ -47,5 +47,26 @@
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/10b9f55c-5125-454e-a2c9-0d2602cb355f">
 
   ---
+
+<div>
+ <h1>Registratión reservation</h1>
+<p>The reservation, day and value is made.</p>
+ <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/403065d4-d15d-475a-91ad-cb9d3a401ffb">
+
+  ---
+
+ <div>
+ <h1>Guest registration</h1>
+<p>In this window the personal data of the guest is taken that are directed to the database.</p>
+ <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/c660b202-4b52-4f98-b524-820c0ee4f0f8">
+
+  ---
+
+<div>
+ <h1>Confirm registration</h1>
+<p>This window confirms that the reservations and the guest have already been registered.</p>
+ <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/58c19d43-0dca-43be-aaf5-b99e78fb2d8c">
+
+  ---
 </html>
 
