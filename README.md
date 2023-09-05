@@ -85,24 +85,20 @@
 
   ---
 
-  <div>
-   <h1>Video</h1>
-   
-
-https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/01ad742c-16cd-4cff-b371-421a25749bc2
-
-https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/41e009bc-9380-4998-bf13-4858a7ced100
-
-https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/ccfd42df-eee1-4c5e-8deb-f924de0fd7ff
-
-https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/1c93f768-ccf9-49fd-9d71-d9a0db409dad
-
-
-   <p>It briefly shows how the project works.</p>
-  </div>
-</div>
+???
 
 ---
+
+<div>
+ <h1>List in table</h1>
+<p>This part shows the personal record of the guest who is in the hotel.</p>
+ <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/2c3f746f-8d00-4502-be00-21d079106577">
+ <p>And a field to find the guest by his last name</p>
+ <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/26fc18ff-854a-481e-89a2-a48ba34a57a3">
+
+  ---
+
+  <div>
 
 <div align= "center">
    <h1>Video explained</h1>
