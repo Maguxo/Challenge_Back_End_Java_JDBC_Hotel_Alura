@@ -21,39 +21,40 @@ public class AdministradorDao {
     }
 
 
-    public List<AdministradorLoguin> listar(String usuario, String password) { //para poder loguearme desde la base de datos. encuentra el regustro y si está, accedo al interior del programa.
-         String comprueba= "";
 
-            List<AdministradorLoguin> resultado = new ArrayList<>();
-            try {
-                final PreparedStatement statement = con.prepareStatement(
-                        "SELECT * FROM ADMINISTRADORlOGUIN WHERE USUARIO= '" + usuario + "' and PASSWORD_USER= '" + password + "'");
-                try (statement) {
-                    final ResultSet resultSet = statement.executeQuery();
-                    try (resultSet) {
-                        if (resultSet.next()) {
+    public List<AdministradorLoguin> listar(String usuario, String password) { //para poder loguearme desde la base de datos. encuentra el regustro y si está, accedo al interior del programa.
+        String comprueba = "";
+
+        List<AdministradorLoguin> resultado = new ArrayList<>();
+        try {
+
+            final PreparedStatement statement = con.prepareStatement(
+                    "SELECT * FROM ADMINISTRADORlOGUIN WHERE USUARIO= '" + usuario + "' and PASSWORD_USER= '" + password + "'");
+            try (statement) {
+
+                final ResultSet resultSet = statement.executeQuery();
+                try (resultSet) {
+
+                    if (resultSet.next()) {
                        /* var loguin= new AdministradorLoguin(
                                 resultSet.getString("USUARIO"),
                                 resultSet.getString("PASSWORD_USER"));
                         resultado.add(loguin);*/
-                           JOptionPane.showMessageDialog(
-                                    null, "¡Acceso peritido!,¡Bienvenido a Hotel Alura!","¡Bienvenido!", JOptionPane.INFORMATION_MESSAGE) ;
-                           comprueba2=true;
+                        JOptionPane.showMessageDialog(
+                                null, "¡Acceso peritido! \n" +
+                                        "¡Bienvenido a Hotel Alura!", "¡Bienvenido!", JOptionPane.INFORMATION_MESSAGE);
+                        comprueba2 = true;
+                    } else {
 
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Usuario o Contraseña no válidos.");
-                            comprueba2=false;
+                        JOptionPane.showMessageDialog(null, "Usuario o Contraseña no válidos.");
+                        comprueba2 = false;
+            }}}} catch (SQLException e) {
 
-                        }
-                    }
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            return resultado;
+            throw new RuntimeException(e);
         }
-    public  Boolean getValidar() {
-        return this.comprueba2 =comprueba2;
+        return resultado;
     }
+    public Boolean getValidar() {
 
-}
+        return this.comprueba2 = comprueba2;
+}}

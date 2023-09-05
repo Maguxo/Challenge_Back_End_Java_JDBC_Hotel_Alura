@@ -12,7 +12,6 @@ public class ReservaDao {
     public ReservaDao(Connection con) {
         this.con = con;
     }
-
     public int eliminaReserva(Integer id) {
 
         try {
@@ -29,12 +28,11 @@ public class ReservaDao {
          }}catch (SQLException e){
 
             throw new RuntimeException(e);
-        }
-    }
-
+    }}
     public int modificaReservas(Date fechaEntrada, Date fechaSalida, Double valor, String formaPago, Integer id) {
 
         try {
+
             final PreparedStatement sta= con.prepareStatement(
                     "UPDATE reservas SET" +
                             "  fechaEntrada = ?" +
@@ -43,6 +41,7 @@ public class ReservaDao {
                             ", formaPago = ?" +
                             "  WHERE id = ?");
             try (sta){
+
                 sta.setDate(1,fechaEntrada);
                 sta.setDate(2,fechaSalida);
                 sta.setDouble(3,valor);
@@ -52,34 +51,34 @@ public class ReservaDao {
 
             int updateCont= sta.getUpdateCount();
             return updateCont;
-
             }}catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-    }
-    public List<Reservas> listarReservas(){
-        List<Reservas> reservas= new ArrayList<>();
 
+            throw new RuntimeException(e);
+        }}
+    public List<Reservas> listarReservas(){
+
+        List<Reservas> reservas= new ArrayList<>();
         try {
+
             final PreparedStatement sta= con.prepareStatement(
                     "SELECT id,fechaEntrada,fechaSalida,valor,formaPago FROM reservas");
             try(sta){
+
                 sta.execute();
 
                 final ResultSet resultSet=sta.getResultSet();
-
                 try (resultSet){
+
                     while (resultSet.next()){
+
                          reservas.add(new Reservas(
                                  resultSet.getInt("id"),
                                  resultSet.getDate("fechaEntrada"),
                                  resultSet.getDate("fechaSalida"),
                                  resultSet.getDouble("valor"),
                                  resultSet.getString("formaPago")));
-                    }
-                }
-            }
-        }catch (SQLException e){
+            }}}}catch (SQLException e){
+
             throw new RuntimeException(e);
         }
         return reservas;
@@ -87,20 +86,19 @@ public class ReservaDao {
     public void insertarReserva(Reservas reservas){
 
         try (con){
+
             final PreparedStatement st= con.prepareStatement(
                     "INSERT INTO reservas" +
                             "(fechaEntrada, fechaSalida, valor, formaPago)" +
                             "VALUES(?,?,?,?)");
             try (st){
+
                 st.setDate(1, reservas.getFechaEntrada());
                 st.setDate(2, reservas.getFechaSalidada());
                 st.setDouble(3,reservas.getValor());
                 st.setString(4,reservas.getFormaPago());
 
                 st.execute();
-            }
-        }catch (SQLException e){
+        }}catch (SQLException e){
             throw new RuntimeException(e);
-        }
-    }
-}
+}}}

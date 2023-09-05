@@ -15,7 +15,9 @@ public class ControllerHuespedes {
     public ControllerHuespedes(){
         this.huespedDao= new HuespedDao(new ConexionFactory().recuperaConexion());
     }
-
+    public List<Huespedes> buscarPorIdApe(String lastName){
+        return huespedDao.buscarPorApeId(lastName);
+    }
     public int eliminaHuesped(Integer id) {
         return huespedDao.eliminaHuespedes(id);
     }

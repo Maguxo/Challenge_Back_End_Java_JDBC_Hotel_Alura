@@ -9,7 +9,6 @@ import java.awt.event.MouseEvent;
 import java.sql.Date;
 import java.util.Objects;
 import java.util.Optional;
-
 public class Busqueda extends JFrame {
     private ControllerView controllerView;
     private ControllerHuespedes controllerHuespedes;
@@ -137,8 +136,17 @@ public class Busqueda extends JFrame {
         btnbuscar.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-    ///ACCIONAR.
-            }});
+                if(txtBuscar.getText().isBlank() || txtBuscar.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(
+                            null, "El campo se encuentre vacio","Campo vacio.",JOptionPane.WARNING_MESSAGE);
+                    return;
+                }else{
+                    controllerHuespedes.buscarPorIdApe(txtBuscar.getText());
+                    limpiarTablaHospedaje();
+                    cargarBusquedaHospedaje(txtBuscar.getText());
+                    JOptionPane.showMessageDialog(
+                            null, "","Dato encontrado",JOptionPane.WARNING_MESSAGE);
+                }}});
         btnbuscar.setLayout(null);
         btnbuscar.setBackground(new Color(12, 138, 199));
         btnbuscar.setBounds(748, 125, 122, 35);
@@ -315,6 +323,19 @@ public class Busqueda extends JFrame {
      }
     private Boolean filaElegidaReserva(){
         return  tbReservas.getSelectedRowCount() == 0 || tbReservas.getSelectedColumnCount() == 0;
+    }
+    private void cargarBusquedaHospedaje(String apellido){
+        var hospedaje= this.controllerHuespedes.buscarPorIdApe(apellido);
+
+            hospedaje.forEach(busca -> modeloHuesped.addRow(
+                    new Object[]{
+                            busca.getId(),
+                            busca.getNombre(),
+                            busca.getApellido(),
+                            busca.getFechaNacimiento(),
+                            busca.getNacionalidad(),
+                            busca.getTelefono(),
+                            busca.getId_reserva()}));
     }
     private  void cargarTablaHospedaje(){
         var huespedes= this.controllerHuespedes.listaHuespedes();

@@ -16,7 +16,6 @@ public class ControllerLogin {
     public List<AdministradorLoguin> listar(String user, String passWord){
         return administradorDao.listar(user,passWord);
     }
-
     public Boolean getValida(){
         return administradorDao.getValidar();
     }
