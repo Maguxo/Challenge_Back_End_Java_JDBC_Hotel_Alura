@@ -68,5 +68,15 @@
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/58c19d43-0dca-43be-aaf5-b99e78fb2d8c">
 
   ---
+
+  <div>
+ <h1>List in table</h1>
+<p>This part shows the personal record of the guest who is in the hotel.</p>
+ <img src="">
+ <p>And a field to find the guest by his last name</p>
+ <img src="">
+ 
+
+  ---
 </html>
 
