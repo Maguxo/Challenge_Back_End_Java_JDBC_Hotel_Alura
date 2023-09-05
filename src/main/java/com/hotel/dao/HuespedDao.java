@@ -1,11 +1,12 @@
 package com.hotel.dao;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.model.Huespedes;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 public class HuespedDao {
 
     final private Connection con;

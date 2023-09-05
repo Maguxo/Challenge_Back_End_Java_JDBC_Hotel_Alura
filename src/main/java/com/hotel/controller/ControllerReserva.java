@@ -1,16 +1,17 @@
 package com.hotel.controller;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.dao.ReservaDao;
 import com.hotel.factory.ConexionFactory;
 import com.hotel.model.Reservas;
-
 import java.sql.Date;
 import java.util.List;
 
 public class ControllerReserva {
 
          private ReservaDao reservaDao;
-
          public  ControllerReserva(){
 
              this.reservaDao= new ReservaDao(new ConexionFactory().recuperaConexion());

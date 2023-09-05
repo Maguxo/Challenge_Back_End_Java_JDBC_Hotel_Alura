@@ -1,5 +1,8 @@
 package com.hotel.views;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 public class ControllerView {
     private MenuPrincipal menuPrincipal;
     private Loguin loguin;

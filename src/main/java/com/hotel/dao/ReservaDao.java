@@ -1,11 +1,13 @@
 package com.hotel.dao;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.model.Reservas;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 public class ReservaDao {
 
     final private Connection con;

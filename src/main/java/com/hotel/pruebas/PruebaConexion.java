@@ -1,5 +1,8 @@
 package com.hotel.pruebas;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.controller.ControllerLogin;
 import com.hotel.factory.ConexionFactory;
 import com.hotel.model.AdministradorLoguin;

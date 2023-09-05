@@ -1,13 +1,14 @@
 package com.hotel.views;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.Objects;
-
 public class MenuPrincipal extends JFrame{
 
     private ControllerView controllerView;

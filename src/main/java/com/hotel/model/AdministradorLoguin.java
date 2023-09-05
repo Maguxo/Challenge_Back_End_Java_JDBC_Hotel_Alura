@@ -1,5 +1,8 @@
 package com.hotel.model;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 public class AdministradorLoguin {
 
     private Integer id;

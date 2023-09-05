@@ -1,8 +1,9 @@
 package com.hotel.views;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.controller.ControllerLogin;
-import com.hotel.model.AdministradorLoguin;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;

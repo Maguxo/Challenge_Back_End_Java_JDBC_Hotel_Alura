@@ -1,5 +1,8 @@
 package com.hotel.views;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseMotionAdapter;

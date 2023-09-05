@@ -1,13 +1,10 @@
 package com.hotel;
-
-import com.hotel.views.*;
-
-import java.awt.*;
-
 /**
- * Hello world!
- *
- */
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
+import com.hotel.views.*;
+import java.awt.*;
 public class App 
 {
     public static void main( String[] args ) {

@@ -1,5 +1,8 @@
 package com.hotel.controller;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.dao.AdministradorDao;
 import com.hotel.factory.ConexionFactory;
 import com.hotel.model.AdministradorLoguin;

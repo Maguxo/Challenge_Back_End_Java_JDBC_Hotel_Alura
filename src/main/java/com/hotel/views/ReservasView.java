@@ -1,4 +1,8 @@
 package com.hotel.views;
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.controller.ControllerReserva;
 import com.hotel.model.Reservas;
 import com.toedter.calendar.JDateChooser;

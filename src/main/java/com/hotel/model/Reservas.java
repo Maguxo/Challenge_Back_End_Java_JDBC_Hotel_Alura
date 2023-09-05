@@ -1,6 +1,9 @@
 package com.hotel.model;
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import java.sql.Date;
-
 public class Reservas {
     private  Integer id;
     private Date fechaEntrada;

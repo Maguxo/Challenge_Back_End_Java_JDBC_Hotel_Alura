@@ -1,4 +1,8 @@
 package com.hotel.views;
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.controller.ControllerHuespedes;
 import com.hotel.model.Huespedes;
 import com.hotel.model.Reservas;
@@ -10,7 +14,6 @@ import java.awt.event.MouseEvent;
 import java.sql.Date;
 import java.text.Format;
 import java.util.Objects;
-
 import static java.lang.Integer.*;
 
 public class RegistroHuespedes extends JFrame {

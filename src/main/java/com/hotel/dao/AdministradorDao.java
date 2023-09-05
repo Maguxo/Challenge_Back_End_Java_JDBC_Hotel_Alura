@@ -1,8 +1,9 @@
 package com.hotel.dao;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.model.AdministradorLoguin;
-import com.hotel.views.Loguin;
-
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,8 +20,6 @@ public class AdministradorDao {
     public AdministradorDao(Connection connection) {
         this.con = connection;
     }
-
-
 
     public List<AdministradorLoguin> listar(String usuario, String password) { //para poder loguearme desde la base de datos. encuentra el regustro y si está, accedo al interior del programa.
         String comprueba = "";

@@ -1,9 +1,10 @@
 package com.hotel.views;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Objects;
 
 public class Exito extends JDialog {

@@ -1,7 +1,9 @@
 package com.hotel.pruebas;
-
+/**
+ * Developed by Edgar M Gómez P
+ * Back-end developer
+ * **/
 import com.hotel.factory.ConexionFactory;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
