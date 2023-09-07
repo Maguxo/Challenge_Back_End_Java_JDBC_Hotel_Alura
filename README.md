@@ -39,6 +39,7 @@
 <p>In order to enter the project you must be registered in the database; And there will also be the tables where the data will be housed.</p>
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/9e6c6c83-9f35-416d-91b5-191836f60f5a">
  <p>I wear MySql Wokbench.</p>
+  
   ---
 
  <div>
