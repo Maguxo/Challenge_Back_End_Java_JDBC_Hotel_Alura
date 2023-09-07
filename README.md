@@ -114,4 +114,13 @@
   </div>
 </div>
 
+---
+
+<div align="center">
+  <h1>Acknowledgments</h1>
+
+   <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/3d18bf36-6c2c-4033-b85d-3a1f43c195a3" width="323" height="300" />
+</div>
+
+
 </html>
