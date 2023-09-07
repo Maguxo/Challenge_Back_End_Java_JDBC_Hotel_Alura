@@ -118,7 +118,11 @@
 
 <div align="center">
   <h1>Acknowledgments</h1>
-
+  
+  <div align="center">
+   <img src="https://img.shields.io/badge/Alura_ONE-Challenge%233-orange"> 
+  </div>
+   
    <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/3d18bf36-6c2c-4033-b85d-3a1f43c195a3" width="323" height="300" />
 </div>
 
