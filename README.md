@@ -31,6 +31,7 @@
  <h1>Project description</h1>
 <p>Start with a first splash screen to register.</p>
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/a8396f0f-a90f-4fd7-913a-4625027f8816">
+  </div>
 
  ---
 
@@ -39,14 +40,16 @@
 <p>In order to enter the project you must be registered in the database; And there will also be the tables where the data will be housed.</p>
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/9e6c6c83-9f35-416d-91b5-191836f60f5a">
  <p>I wear MySql Wokbench.</p>
-  
+</div>
+
   ---
 
  <div>
  <h1>Sign in</h1>
 <p>User must be initialized to initialize a record at the hotel</p>
  <img src="https://github.com/Magucho/Challenge_Back_End_Java_JDBC_Hotel_Alura/assets/98346054/8f1c8676-15f3-41cd-afc2-d3e2afb03678">
-
+ </div>
+ 
   ---
 
 <div>
